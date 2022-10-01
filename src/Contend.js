@@ -4,19 +4,23 @@ import Card from "./Card";
 
 
 
-export default function Contend({quests}){
+export default function Contend({ quests, registeredAnswers, setRegisteredAnswers }) {
 
-    
+
     const [isDisable, setIsDisable] = useState([false, false, false, false])
+    console.log(isDisable)
 
-    return(
+    return (
         <Pack>
-            {quests.map((e,i)=><Card key={i} 
-            question={e.question} 
-            answer={e.answer} 
-            index={i} 
-            isDisable={isDisable} 
-            setIsDisable={setIsDisable} />)}
+            {quests.map((e, i) => <Card key={i}
+                question={e.question}
+                answer={e.answer}
+                index={i}
+                isDisable={isDisable}
+                setIsDisable={setIsDisable}
+                registeredAnswers={registeredAnswers}
+                setRegisteredAnswers={setRegisteredAnswers} />)}
+
         </Pack>
     );
 }

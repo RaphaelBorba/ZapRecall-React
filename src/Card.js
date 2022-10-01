@@ -2,29 +2,50 @@ import styled from "styled-components";
 import { useState } from "react";
 
 import OpenCard from "./OpenCard";
+import CloseCard from "./CloseCard";
 
-export default function Card({ question, answer, index, isDisable, setIsDisable }) {
-    
+export default function Card({
+    question,
+    answer,
+    index,
+    isDisable,
+    setIsDisable,
+    registeredAnswers,
+    setRegisteredAnswers }) {
+
     const [bol, setBol] = useState(true)
-    
-    
 
-    function disableButtons(){
+    function disableButtons() {
         (bol) ? setBol(false) : setBol(true)
         const array = isDisable.map((val, i) => i === index ? val : true)
-        console.log(array)
         setIsDisable(array)
     }
 
-    return (
-        <NypeCard style={{pointerEvents: isDisable[index] ? 'none' : 'initial'}}>
+    function ableButtons(){
+        let arr = isDisable.map((a)=>false)
+        setIsDisable(arr)
+    }
 
-            <CardOff bol={bol}>
-                <h1>Pergunta {index + 1}</h1>
-                <ion-icon onClick={disableButtons} name="play-outline" ></ion-icon>
-            </CardOff>
+
+
+    return (
+        <NypeCard style={{ pointerEvents: isDisable[index] ? 'none' : 'initial' }}>
+
+
+            <CloseCard registeredAnswers={registeredAnswers[index]}
+                bol={bol}
+                disableButtons={disableButtons}
+                index={index} />
+
             
-            <OpenCard bol={bol} question={question} answer={answer}/>
+            <OpenCard index={index}
+                ableButtons={ableButtons}
+                setBol={setBol}
+                bol={bol}
+                question={question}
+                answer={answer}
+                registeredAnswers={registeredAnswers}
+                setRegisteredAnswers={setRegisteredAnswers} />
         </NypeCard>
     );
 }
@@ -42,13 +63,3 @@ const NypeCard = styled.div`
     }
 `;
 
-const CardOff = styled.div`
-    display: ${props => (props.bol) ? 'flex' : 'none'};
-    align-items: center ;
-    justify-content: space-between;
-    margin: 20px;
-    ion-icon{
-        font-size: 25px;
-    }
-    
-`;

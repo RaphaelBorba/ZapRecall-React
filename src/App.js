@@ -5,31 +5,38 @@ import Top from "./Top";
 import Contend from "./Contend";
 import Footer from "./Footer";
 
-const quests = [{question:'O que é JSX', answer:'Uma extensão de linguagem do JavaScript'},
-                {question:'O React é?', answer:'Uma biblioteca JavaScript para construção de interfaces'},
-                {question:'Componentes devem iniciar com?', answer:'Letra maiúscula'},
-                {question:'Podemos colocar __ dentro do JSX', answer:'Expressões'},
-                {question:'O ReactDOM nos ajuda __', answer:'interagindo com a DOM para colocar componentes React na mesma'},
-                {question:'Usamos o npm para __', answer:'gerenciar os pacotes necessários e suas dependências'},
-                {question:'Usamos props para __', answer:'passar diferentes informações para componentes '},
-                {question:'Usamos estado (state) para __', answer:'dizer para o React quais informações quando atualizadas devem renderizar a tela novamente'}]
+const quests = [{ question: 'O que é JSX', answer: 'Uma extensão de linguagem do JavaScript' },
+{ question: 'O React é?', answer: 'Uma biblioteca JavaScript para construção de interfaces' },
+{ question: 'Componentes devem iniciar com?', answer: 'Letra maiúscula' },
+{ question: 'Podemos colocar __ dentro do JSX', answer: 'Expressões' },
+{ question: 'O ReactDOM nos ajuda __', answer: 'interagindo com a DOM para colocar componentes React na mesma' },
+{ question: 'Usamos o npm para __', answer: 'gerenciar os pacotes necessários e suas dependências' },
+{ question: 'Usamos props para __', answer: 'passar diferentes informações para componentes ' },
+{ question: 'Usamos estado (state) para __', answer: 'dizer para o React quais informações quando atualizadas devem renderizar a tela novamente' }]
+
+function randomQuestsList() {
+    const randomList = quests.sort(() => 0.5 - Math.random())
+    return randomList.slice(0, 4)
+}
+const arrayQuests = randomQuestsList()
+
+export default function App() {
+
+    const [registeredAnswers, setRegisteredAnswers] = useState([0, 0, 0, 0])
 
 
 
-export default function App(){
-
-    function randomQuestsList(){
-        const randomList = quests.sort(() => 0.5 - Math.random())
-        return randomList.slice(0,4)
-    }
-    
-    return(
+    return (
         <>
-            <GlobalStyle/>
+            <GlobalStyle />
             <Body>
-                <Top/>
-                <Contend quests={randomQuestsList()}/>
-                <Footer/>
+                <Top />
+
+                <Contend registeredAnswers={registeredAnswers}
+                    setRegisteredAnswers={setRegisteredAnswers}
+                    quests={arrayQuests} />
+
+                <Footer />
             </Body>
         </>
     );

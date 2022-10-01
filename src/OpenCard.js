@@ -3,20 +3,33 @@ import spin from './assets/img/setinha.png'
 import { useState } from "react";
 
 
-export default function OpenCard({ bol, answer, question }) {
+export default function OpenCard({ ableButtons, setBol, bol, answer, question, index, setRegisteredAnswers, registeredAnswers }) {
 
     const [changeDisplay, setChangeDisplay] = useState(true)
+    
+    function registerAnswer(val){
+        let arr = [...registeredAnswers];
+        arr.splice(index,1,val);
+        setRegisteredAnswers(arr);
+        (bol) ? setBol(false) : setBol(true);
+        ableButtons()
+
+    }
 
     return (
 
         <CardOn bol={bol}>
+
             <h2 style={{ display: (changeDisplay) ? 'initial' : 'none' }}>{question}</h2>
             <img style={{ display: (changeDisplay) ? 'initial' : 'none' }} onClick={() => (changeDisplay) ? setChangeDisplay(false) : setChangeDisplay(true)} src={spin} alt={spin} />
             <h2 style={{ display: (changeDisplay) ? 'none' : 'initial' }}>{answer}</h2>
+
             <DivBut style={{ display: (changeDisplay) ? 'none' : 'initial' }}>
-                <Botao onClick={()=>alert('Não')} left='0' cor='#FF3030' >Não lembrei</Botao>
-                <Botao onClick={()=>alert('Quase')} left='90' cor='#FF922E' >Quase não lembrei</Botao>
-                <Botao onClick={()=>alert('Zap')} left='180' cor='#2FBE34' >Zap!</Botao>
+
+                <Botao onClick={()=>registerAnswer(1)} left='0' cor='#FF3030' >Não lembrei</Botao>
+                <Botao onClick={()=>registerAnswer(2)} left='90' cor='#FF922E' >Quase não lembrei</Botao>
+                <Botao onClick={()=>registerAnswer(3)} left='180' cor='#2FBE34' >Zap!</Botao>
+
             </DivBut>
         </CardOn>
 
