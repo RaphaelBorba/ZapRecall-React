@@ -6,6 +6,8 @@ export default function CloseCard({ registeredAnswers, bol, index, disableButton
     let nameIcon = 'play-outline'
     let colorText = 'black'
 
+    /* FUNCTION TO RENDER THE KIND OF CARD ACCORD TO THE ARRAY registeredAnswers */
+
     function choseTypeCards() {
 
         if (registeredAnswers === 1) {

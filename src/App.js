@@ -14,6 +14,8 @@ const quests = [{ question: 'O que é JSX', answer: 'Uma extensão de linguagem 
 { question: 'Usamos props para __', answer: 'passar diferentes informações para componentes ' },
 { question: 'Usamos estado (state) para __', answer: 'dizer para o React quais informações quando atualizadas devem renderizar a tela novamente' }]
 
+/* CREATE AN RANDOM ARRAY WITH FOUR ELEMENTS  */
+
 function randomQuestsList() {
     const randomList = quests.sort(() => 0.5 - Math.random())
     return randomList.slice(0, 4)

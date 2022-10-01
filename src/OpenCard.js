@@ -6,6 +6,8 @@ import { useState } from "react";
 export default function OpenCard({ ableButtons, setBol, bol, answer, question, index, setRegisteredAnswers, registeredAnswers }) {
 
     const [changeDisplay, setChangeDisplay] = useState(true)
+
+    /* FUNCTION THAT CHANGES THE ARRAY registeredAnswers REGISTERING TYPE ANSWER */
     
     function registerAnswer(val){
         let arr = [...registeredAnswers];

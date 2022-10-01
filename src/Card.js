@@ -15,11 +15,15 @@ export default function Card({
 
     const [bol, setBol] = useState(true)
 
+    /* FUNCTION TO DISABLE THE OTHER QUESTIONS CARD */
+
     function disableButtons() {
         (bol) ? setBol(false) : setBol(true)
         const array = isDisable.map((val, i) => i === index ? val : true)
         setIsDisable(array)
     }
+
+    /* FUNCTION TO ABLE QUESTIONS CARD REMAINS */
 
     function ableButtons(){
         let arr = isDisable.map((a)=>false)
