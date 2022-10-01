@@ -27,9 +27,13 @@ export default function CloseCard({ registeredAnswers, bol, index, disableButton
 
     return (
 
-        <CardOff registeredAnswers={registeredAnswers} colorText={colorText} bol={bol}>
+        <CardOff data-identifier="flashcard-index-item" registeredAnswers={registeredAnswers} colorText={colorText} bol={bol}>
             <h1>Pergunta {index + 1}</h1>
-            <ion-icon onClick={(registeredAnswers === 0) ? disableButtons : null} name={nameIcon} ></ion-icon>
+            <ion-icon 
+            data-identifier="flashcard-show-btn" 
+            /* data-identifier="flashcard-status" */ 
+            onClick={(registeredAnswers === 0) ? disableButtons : null} name={nameIcon}
+            ></ion-icon>
         </CardOff>
     );
 }

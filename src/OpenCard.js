@@ -21,17 +21,17 @@ export default function OpenCard({ plusCount, ableButtons, setBol, bol, answer, 
 
     return (
 
-        <CardOn bol={bol}>
+        <CardOn data-identifier="flashcard-index-item" bol={bol}>
 
-            <h2 style={{ display: (changeDisplay) ? 'initial' : 'none' }}>{question}</h2>
-            <img style={{ display: (changeDisplay) ? 'initial' : 'none' }} onClick={() => (changeDisplay) ? setChangeDisplay(false) : setChangeDisplay(true)} src={spin} alt={spin} />
-            <h2 style={{ display: (changeDisplay) ? 'none' : 'initial' }}>{answer}</h2>
+            <h2 data-identifier="flashcard-question" style={{ display: (changeDisplay) ? 'initial' : 'none' }}>{question}</h2>
+            <img data-identifier="flashcard-turn-btn" style={{ display: (changeDisplay) ? 'initial' : 'none' }} onClick={() => (changeDisplay) ? setChangeDisplay(false) : setChangeDisplay(true)} src={spin} alt={spin} />
+            <h2 data-identifier="flashcard-answer" style={{ display: (changeDisplay) ? 'none' : 'initial' }}>{answer}</h2>
 
             <DivBut style={{ display: (changeDisplay) ? 'none' : 'initial' }}>
 
-                <Botao onClick={()=>registerAnswer(1)} left='0' cor='#FF3030' >Não lembrei</Botao>
-                <Botao onClick={()=>registerAnswer(2)} left='90' cor='#FF922E' >Quase não lembrei</Botao>
-                <Botao onClick={()=>registerAnswer(3)} left='180' cor='#2FBE34' >Zap!</Botao>
+                <Botao data-identifier="forgot-btn" onClick={()=>registerAnswer(1)} left='0' cor='#FF3030' >Não lembrei</Botao>
+                <Botao data-identifier="almost-forgot-btn" onClick={()=>registerAnswer(2)} left='90' cor='#FF922E' >Quase não lembrei</Botao>
+                <Botao data-identifier="zap-btn" onClick={()=>registerAnswer(3)} left='180' cor='#2FBE34' >Zap!</Botao>
 
             </DivBut>
         </CardOn>

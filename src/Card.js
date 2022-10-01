@@ -34,7 +34,7 @@ export default function Card({
 
 
     return (
-        <NypeCard style={{ pointerEvents: isDisable[index] ? 'none' : 'initial' }}>
+        <NypeCard data-identifier="flashcard" style={{ pointerEvents: isDisable[index] ? 'none' : 'initial' }}>
 
 
             <CloseCard registeredAnswers={registeredAnswers[index]}
@@ -58,7 +58,7 @@ export default function Card({
 
 const NypeCard = styled.div`
     width: 300px;
-    min-height: 65px;
+    
     background-color: white;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;

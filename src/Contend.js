@@ -7,11 +7,10 @@ import Card from "./Card";
 export default function Contend({ plusCount, quests, registeredAnswers, setRegisteredAnswers }) {
 
 
-    const [isDisable, setIsDisable] = useState([false, false, false, false])
-    console.log(isDisable)
+    const [isDisable, setIsDisable] = useState(registeredAnswers.map((a)=>false))
 
     return (
-        <Pack>
+        <Pack registeredAnswers={registeredAnswers}>
             {quests.map((e, i) => <Card key={i}
                 question={e.question}
                 answer={e.answer}
@@ -29,11 +28,9 @@ export default function Contend({ plusCount, quests, registeredAnswers, setRegis
 
 const Pack = styled.div`
     width: 100%;
-    min-height: 400px;
+    height: 480px;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0 0 120px 0;
-    overflow-y: hidden;
+    overflow: scroll;
 `;

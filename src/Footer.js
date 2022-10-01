@@ -29,7 +29,7 @@ export default function Footer({count, registeredAnswers }) {
 
     return (
         <BoxFooter colorText={colorText}>
-            <h1>{count}/4 CONCLUÍDOS</h1>
+            <h1 data-identifier="flashcard-counter">{count}/{registeredAnswers.length} CONCLUÍDOS</h1>
             <div>
                 {registeredAnswers.map((a, i) => showIcon(a, i))}
             </div>

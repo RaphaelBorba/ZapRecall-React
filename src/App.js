@@ -18,13 +18,13 @@ const quests = [{ question: 'O que é JSX', answer: 'Uma extensão de linguagem 
 
 function randomQuestsList() {
     const randomList = quests.sort(() => 0.5 - Math.random())
-    return randomList.slice(0, 4)
+    return randomList.slice(0, 8)
 }
 const arrayQuests = randomQuestsList()
 
 export default function App() {
-
-    const [registeredAnswers, setRegisteredAnswers] = useState([0, 0, 0, 0])
+    
+    const [registeredAnswers, setRegisteredAnswers] = useState(arrayQuests.map((a)=>0))
     const [count, setCount] = useState(0);
 
     /* FUNCTION TO PLUS 1 ON THE COUNT IN THE FOOTER */
