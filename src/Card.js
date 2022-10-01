@@ -5,6 +5,7 @@ import OpenCard from "./OpenCard";
 import CloseCard from "./CloseCard";
 
 export default function Card({
+    plusCount,
     question,
     answer,
     index,
@@ -49,7 +50,8 @@ export default function Card({
                 question={question}
                 answer={answer}
                 registeredAnswers={registeredAnswers}
-                setRegisteredAnswers={setRegisteredAnswers} />
+                setRegisteredAnswers={setRegisteredAnswers}
+                plusCount={plusCount} />
         </NypeCard>
     );
 }

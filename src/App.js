@@ -25,8 +25,14 @@ const arrayQuests = randomQuestsList()
 export default function App() {
 
     const [registeredAnswers, setRegisteredAnswers] = useState([0, 0, 0, 0])
+    const [count, setCount] = useState(0);
 
+    /* FUNCTION TO PLUS 1 ON THE COUNT IN THE FOOTER */
 
+    function plusCount(){
+        
+        setCount(count+1)
+    }
 
     return (
         <>
@@ -36,9 +42,10 @@ export default function App() {
 
                 <Contend registeredAnswers={registeredAnswers}
                     setRegisteredAnswers={setRegisteredAnswers}
-                    quests={arrayQuests} />
+                    quests={arrayQuests}
+                    plusCount={plusCount} />
 
-                <Footer />
+                <Footer count={count} registeredAnswers={registeredAnswers} />
             </Body>
         </>
     );

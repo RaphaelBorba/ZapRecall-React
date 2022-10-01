@@ -4,7 +4,7 @@ import Card from "./Card";
 
 
 
-export default function Contend({ quests, registeredAnswers, setRegisteredAnswers }) {
+export default function Contend({ plusCount, quests, registeredAnswers, setRegisteredAnswers }) {
 
 
     const [isDisable, setIsDisable] = useState([false, false, false, false])
@@ -19,7 +19,8 @@ export default function Contend({ quests, registeredAnswers, setRegisteredAnswer
                 isDisable={isDisable}
                 setIsDisable={setIsDisable}
                 registeredAnswers={registeredAnswers}
-                setRegisteredAnswers={setRegisteredAnswers} />)}
+                setRegisteredAnswers={setRegisteredAnswers}
+                plusCount={plusCount} />)}
 
         </Pack>
     );

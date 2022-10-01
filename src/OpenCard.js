@@ -3,7 +3,7 @@ import spin from './assets/img/setinha.png'
 import { useState } from "react";
 
 
-export default function OpenCard({ ableButtons, setBol, bol, answer, question, index, setRegisteredAnswers, registeredAnswers }) {
+export default function OpenCard({ plusCount, ableButtons, setBol, bol, answer, question, index, setRegisteredAnswers, registeredAnswers }) {
 
     const [changeDisplay, setChangeDisplay] = useState(true)
 
@@ -15,6 +15,7 @@ export default function OpenCard({ ableButtons, setBol, bol, answer, question, i
         setRegisteredAnswers(arr);
         (bol) ? setBol(false) : setBol(true);
         ableButtons()
+        plusCount()
 
     }
 
