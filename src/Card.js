@@ -1,23 +1,30 @@
 import styled from "styled-components";
 import { useState } from "react";
-import spin from './assets/img/setinha.png'
 
-export default function Card({ question, answer, index }) {
+import OpenCard from "./OpenCard";
+
+export default function Card({ question, answer, index, isDisable, setIsDisable }) {
+    
     const [bol, setBol] = useState(true)
-    const [changeDisplay, setChangeDisplay] = useState(true)
+    
+    
 
+    function disableButtons(){
+        (bol) ? setBol(false) : setBol(true)
+        const array = isDisable.map((val, i) => i === index ? val : true)
+        console.log(array)
+        setIsDisable(array)
+    }
 
     return (
-        <NypeCard>
+        <NypeCard style={{pointerEvents: isDisable[index] ? 'none' : 'initial'}}>
+
             <CardOff bol={bol}>
                 <h1>Pergunta {index + 1}</h1>
-                <ion-icon onClick={() => (bol) ? setBol(false) : setBol(true)} name="play-outline" ></ion-icon>
+                <ion-icon onClick={disableButtons} name="play-outline" ></ion-icon>
             </CardOff>
-            <CardOn bol={bol}>
-                <h2 style={{display:(changeDisplay)?'initial':'none'}}>{question}</h2>
-                <h2 style={{display:(changeDisplay)?'none':'initial'}}>{answer}</h2>
-                <img style={{display:(changeDisplay)?'initial':'none'}} onClick={() => (changeDisplay) ? setChangeDisplay(false) : setChangeDisplay(true)} src={spin} alt={spin} />
-            </CardOn>
+            
+            <OpenCard bol={bol} question={question} answer={answer}/>
         </NypeCard>
     );
 }
@@ -29,7 +36,6 @@ const NypeCard = styled.div`
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     margin: 15px 0;
-    
     h1{
         font-weight: 400;
         font-size: 18px;
@@ -43,22 +49,6 @@ const CardOff = styled.div`
     margin: 20px;
     ion-icon{
         font-size: 25px;
-    }
-    
-`;
-const CardOn = styled.div`
-    display: ${props => (props.bol) ? 'none' : 'flex'};
-    position: relative;
-    margin: 20px;
-    h2{
-        font-weight: 400;
-        font-size: 18px;
-    }
-    img{
-        position: absolute;
-        bottom: -10px;
-        right: 0;
-        width: 20px;
     }
     
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { createGlobalStyle } from 'styled-components';
 import Top from "./Top";
 import Contend from "./Contend";
@@ -39,7 +40,7 @@ export default function App(){
 const Body = styled.div`
     width: 375px;
     background-color: #FB6B6B;
-    height: 700px;
+    min-height: 700px;
 `;
 
 
